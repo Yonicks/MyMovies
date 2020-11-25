@@ -3,18 +3,17 @@ import * as actions from '../actions/';
 import { StoreState } from '../types/index';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { EnthusiasmAction } from '../actions/types';
+import { EnthusiasmActionTypes } from '../actions/types';
 
 const mapStateToProps = (state: StoreState) => {
     const { enthusiasm } = state;
-    debugger
     return {
         enthusiasmLevel: enthusiasm.enthusiasmLevel,
         name: enthusiasm.languageName,
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch<EnthusiasmAction>) => {
+const mapDispatchToProps = (dispatch: Dispatch<EnthusiasmActionTypes>) => {
     return {
         onIncrement: () => dispatch(actions.incrementEnthusiasm()),
         onDecrement: () => dispatch(actions.decrementEnthusiasm()),

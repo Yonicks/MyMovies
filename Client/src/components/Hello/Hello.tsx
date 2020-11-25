@@ -11,7 +11,6 @@ export interface Props {
 class Hello extends React.Component<Props> {
 
     render() {
-        debugger
         const { name = 'Typescript', enthusiasmLevel, onIncrement, onDecrement } = this.props;
 
         if (!enthusiasmLevel || enthusiasmLevel <= 0) {
@@ -37,6 +36,5 @@ export default Hello;
 // helpers
 
 function getExclamationMarks(numChars: number) {
-    debugger
     return Array(numChars + 1).join('!');
 }

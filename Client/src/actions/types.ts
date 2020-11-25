@@ -1,11 +1,19 @@
-import * as constants from '../constants';
 
+import { DECREMENT_ENTHUSIASM, INCREMENT_ENTHUSIASM, CHANGE_APP_NAME } from './../constants/index';
 export interface IncrementEnthusiasm {
-    type: constants.INCREMENT_ENTHUSIASM;
+    type: typeof INCREMENT_ENTHUSIASM;
 }
 
 export interface DecrementEnthusiasm {
-    type: constants.DECREMENT_ENTHUSIASM;
+    type: typeof DECREMENT_ENTHUSIASM;
 }
 
-export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm;
+export type EnthusiasmActionTypes = IncrementEnthusiasm | DecrementEnthusiasm;
+
+
+export interface ChangeAppName {
+    type: typeof CHANGE_APP_NAME;
+    payload: string;
+}
+
+export type HeaderActionTypes = ChangeAppName;
