@@ -7,6 +7,7 @@
     position: relative;
     border-right: 2px solid black;
     height: 113px;
+    overflow: hidden;
     cursor: pointer;
 }
 
@@ -22,4 +23,14 @@
     &:hover {
         opacity: 1;
     }
+}
+
+.scroll-menu-arrow span {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.horizontal-menu {
+    // height: 117px;
 }

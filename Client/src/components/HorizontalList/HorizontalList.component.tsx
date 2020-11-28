@@ -2,35 +2,56 @@ import React from 'react'
 import { posterPathW200 } from '../../apis/theMovieDB';
 import { IMovie } from './../../types/movie';
 import './HorizontalList.scss';
+import ScrollMenu from 'react-horizontal-scrolling-menu';
+import Icon from '@material-ui/core/Icon';
 
-interface Props {
+interface IProps {
     moviesList: IMovie[]
 }
 
 export interface State {
 }
 
+const HorizontalList: React.FunctionComponent<IProps> = (props: IProps) => {
 
-class HorizontalList extends React.Component<Props, State> {
 
-    render() {
-        const { moviesList } = this.props;
+
+    const MenuItem = ({ backdrop_path, title }: { backdrop_path: string, title: string }) => {
         return (
-            <div className="moviesList">
-                {
-                    moviesList?.map((res: IMovie) => {
-                        return (
-                            <div className="movieItem" key={res.id}>
-                                <img src={posterPathW200 + res.backdrop_path} alt="poster" />
-                                <div className="details" >{res.title}</div>
-                            </div>
-                        );
-
-                    })
-                }
+            <div className={`movieItem menu-item ${true ? 'active' : ''}`}>
+                <img src={posterPathW200 + backdrop_path} alt="poster" />
+                <div className="details" >{title}</div>
             </div>
-        )
-    }
+        );
+    };
+
+    const Menu = (moviesList: IMovie[]): any => {
+        return moviesList?.map((res: IMovie) => {
+            return <MenuItem key={res.id} {...res} />;
+        });
+    };
+
+    const Arrow = ({ text, className }: { text: string, className: string }) => {
+        return (
+            <div className={className}> <Icon>{text}</Icon> </div>
+        );
+    };
+
+
+    const { moviesList } = props;
+    const ArrowLeft = Arrow({ text: 'chevron_left', className: 'arrow-prev' });
+    const ArrowRight = Arrow({ text: 'chevron_right', className: 'arrow-next' });
+    const menuItems = Menu(moviesList);
+
+
+    return <>
+        <ScrollMenu
+            data={menuItems}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+        />
+    </>
 }
 
 export default HorizontalList;
+

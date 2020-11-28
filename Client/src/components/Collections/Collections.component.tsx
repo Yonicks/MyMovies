@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import Collection from './../Collection/Collection.component';
 import { MoviesCollectionsState } from './../../types/index';
+import './Collections.styles.scss';
 
 
 interface Props {
@@ -15,7 +16,7 @@ interface Props {
 
 const Collections: React.FunctionComponent<Props> = (props) => {
     const { fetchTopRatedMovies, fetchNowPlayingMovies, fetchPopularMovies, fetchUpcomingMovies, movies } = props;
-
+    const { top_rated, now_playing, popular, upcoming } = movies;
 
 
     useEffect(() => {
@@ -27,10 +28,11 @@ const Collections: React.FunctionComponent<Props> = (props) => {
 
     return <>
         <div className="collectionsArea">
-            <Collection moviesListResponse={movies.top_rated} title="Top Rated" />
-            <Collection moviesListResponse={movies.now_playing} title="Now Playing" />
-            <Collection moviesListResponse={movies.popular} title="Popular" />
-            <Collection moviesListResponse={movies.upcoming} title="Upcoming" />
+            <Collection moviesListResponse={top_rated} title="Top Rated" />
+            <Collection moviesListResponse={now_playing} title="Now Playing" />
+            <Collection moviesListResponse={popular} title="Popular" />
+            <Collection moviesListResponse={popular} title="Popular" />
+            <Collection moviesListResponse={upcoming} title="Upcoming" />
         </div>
     </>
 }
