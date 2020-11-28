@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { HeaderState } from './../../types/index';
-import Logo from "../../assets/logo.png"
+import Logo from "../../assets/logo.png";
+import './Header.scss';
 
 export interface Props extends HeaderState {
     children?: React.ReactNode,
@@ -16,7 +17,6 @@ class Header extends React.Component<Props, State> {
 
     render() {
         const { appName, navLinks } = this.props;
-        console.log(this.props);
         return (
             <div className="ui fixed inverted menu">
                 <div className="ui container">

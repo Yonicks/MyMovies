@@ -1,6 +1,10 @@
+
+import { IMovie } from './movie';
+
 export interface StoreState {
     enthusiasm: EnthusiasmState,
-    header: HeaderState
+    header: HeaderState,
+    movies: MoviesCollectionsState,
 }
 export interface EnthusiasmState {
     languageName: string;
@@ -16,4 +20,18 @@ export interface NavLink {
     title: string;
     path: string;
     children?: NavLink[]
+}
+
+export interface MoviesCollectionsState {
+    top_rated: MoviesListResponse;
+    now_playing: MoviesListResponse;
+    popular: MoviesListResponse;
+    upcoming: MoviesListResponse;
+}
+
+export interface MoviesListResponse {
+    page: number;
+    total_pages: number;
+    results: IMovie[];
+    total_results: number;
 }
