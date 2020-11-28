@@ -11,10 +11,4 @@ const mapStateToProps = (state: StoreState) => {
     }
 }
 
-const mapDispatchToProps = () => {
-    return {
-        aaa: 2
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, null)(Header);

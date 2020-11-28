@@ -6,7 +6,6 @@ const INITIAL_STATE: HeaderState = {
     appName: 'MyMovies',
     navLinks: [
         { id: '1', title: 'Home', path: '/' } as NavLink,
-        { id: '2', title: 'Counter', path: '/Counter' } as NavLink,
     ]
 };
 
