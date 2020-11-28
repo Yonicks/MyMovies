@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { posterPathW200 } from '../../apis/theMovieDB';
 import { IMovie } from './../../types/movie';
 import './HorizontalList.scss';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import Icon from '@material-ui/core/Icon';
+import { Link } from 'react-router-dom';
 
 interface IProps {
     moviesList: IMovie[]
@@ -12,16 +13,18 @@ interface IProps {
 export interface State {
 }
 
-const HorizontalList: React.FunctionComponent<IProps> = (props: IProps) => {
+const HorizontalList: React.FunctionComponent<IProps> = (props: IProps): ReactElement => {
 
 
 
-    const MenuItem = ({ backdrop_path, title }: { backdrop_path: string, title: string }) => {
+    const MenuItem = ({ id, backdrop_path, title }: { id: number, backdrop_path: string, title: string }) => {
         return (
-            <div className={`movieItem menu-item ${true ? 'active' : ''}`}>
-                <img src={posterPathW200 + backdrop_path} alt="poster" />
-                <div className="details" >{title}</div>
-            </div>
+            <Link to={`/movie/details/${id}`}>
+                <div className={`movieItem menu-item ${true ? 'active' : ''}`}>
+                    <img src={posterPathW200 + backdrop_path} alt="poster" />
+                    <div className="details" >{title}</div>
+                </div>
+            </Link>
         );
     };
 

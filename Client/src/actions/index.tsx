@@ -38,3 +38,8 @@ export const fetchUpcomingMovies = (page: number = 1) => async (dispatch: Dispat
     const response = await theMovieDB.get(`upcoming?api_key=${apiKey}&language=en-US&page=${page}`);
     dispatch({ type: constants.FETCH_UPCOMING_MOVIES, payload: response.data });
 }
+
+export const fetchMovieDetails = (id: string) => async (dispatch: Dispatch<MoviesActionTypes>) => {
+    const response = await theMovieDB.get(`/${id}?api_key=${apiKey}&language=en-US`);
+    dispatch({ type: constants.FETCH_MOVIE_DETAILS, payload: response.data });
+}

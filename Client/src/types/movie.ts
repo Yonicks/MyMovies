@@ -15,3 +15,8 @@ export interface IMovie {
     video: boolean
 
 }
+
+
+export interface IMovieDetails extends IMovie {
+    genres: { id: number, name: string }[]
+}

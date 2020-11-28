@@ -1,6 +1,7 @@
 
 import { MoviesListResponse } from '../types';
-import { DECREMENT_ENTHUSIASM, INCREMENT_ENTHUSIASM, CHANGE_APP_NAME, FETCH_TOP_RATED_MOVIES, FETCH_NOW_PLAYING_MOVIES, FETCH_UPCOMING_MOVIES, FETCH_POPULAR_MOVIES } from './../constants/index';
+import { DECREMENT_ENTHUSIASM, INCREMENT_ENTHUSIASM, CHANGE_APP_NAME, FETCH_TOP_RATED_MOVIES, FETCH_NOW_PLAYING_MOVIES, FETCH_UPCOMING_MOVIES, FETCH_POPULAR_MOVIES, FETCH_MOVIE_DETAILS } from './../constants/index';
+import { IMovieDetails } from './../types/movie';
 
 export interface IncrementEnthusiasm {
     type: typeof INCREMENT_ENTHUSIASM;
@@ -47,5 +48,10 @@ export interface FetchUpcomingMovies {
     payload: MoviesListResponse,
 }
 
+export interface FetchMovieDetails {
+    type: typeof FETCH_MOVIE_DETAILS;
+    payload: IMovieDetails,
+}
 
-export type MoviesActionTypes = FetchTopRatedMovies | FetchNowPlayingMovies | FetchPopularMovies | FetchUpcomingMovies;
+
+export type MoviesActionTypes = FetchTopRatedMovies | FetchNowPlayingMovies | FetchPopularMovies | FetchUpcomingMovies | FetchMovieDetails;

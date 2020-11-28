@@ -4,6 +4,7 @@ import Header from './containers/Header';
 import { Router, Route, Switch } from 'react-router-dom';
 import createBrowserHistory from './history';
 import Collections from './containers/Collections.container';
+import MovieDetails from './components/MovieDetails/MovieDetails.component';
 
 function App() {
   return (
@@ -13,9 +14,8 @@ function App() {
           <Header />
           <div className="ui main container">
             <Switch>
-              <Route exact path='/'>
-                <Collections />
-              </Route>
+              <Route exact path='/' component={Collections}></Route>
+              <Route exact path='/movie/details/:id' component={MovieDetails}></Route>
               <Route exact path='/Counter'>
                 <Hello />
               </Route>

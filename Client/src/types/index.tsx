@@ -1,5 +1,5 @@
 
-import { IMovie } from './movie';
+import { IMovie, IMovieDetails } from './movie';
 
 export interface StoreState {
     enthusiasm: EnthusiasmState,
@@ -27,6 +27,8 @@ export interface MoviesCollectionsState {
     now_playing: MoviesListResponse;
     popular: MoviesListResponse;
     upcoming: MoviesListResponse;
+    movieDetails: IMovieDetails,
+
 }
 
 export interface MoviesListResponse {
@@ -34,4 +36,8 @@ export interface MoviesListResponse {
     total_pages: number;
     results: IMovie[];
     total_results: number;
+}
+
+export interface RouteParams {
+    id: string;
 }
